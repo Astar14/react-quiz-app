@@ -4,8 +4,15 @@ import vector from "../assets/Vector 15.png"
 import crown from "../assets/crown.png"
 import mypic from "../assets/amit.jpeg"
 import userImage from "../assets/user_image.jpg"
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 const LeaderBoard = () => {
+  let userData = JSON.parse(localStorage.getItem("userLoggedIn"))
+  const userTests = useSelector((state) => state.userTests.userTests);
+
+  const dispatch = useDispatch()
+
   return (
       <>
        <header id="header">
@@ -18,7 +25,7 @@ const LeaderBoard = () => {
         <ul>
           <a href="startquiz.html"><li></li></a>
            <li>Welcome,</li>
-           <li>A</li>
+            <li>{dispatch(userTests.totalScore)}</li>
            <img
           id="popup"
           src={userImage}
@@ -30,7 +37,7 @@ const LeaderBoard = () => {
 
     <section id="leaderboard-main">
       <h1 id="user-rank-title">Wow You Rank 1st</h1>
-      <p id="supporting-text">Your Score: 5</p>
+        <p id="supporting-text">Your Score: {userData.fullName}</p>
     </section>
 
     <section id="score-board">

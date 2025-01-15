@@ -4,6 +4,7 @@ import techpaathshala from "../assets/techpaathshala.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchQuestionRequest } from "../store/questions/questionAction";
 import { addUserTestRequest } from "../store/userTest/userTestAction";
+import { useNavigate } from "react-router";
 
 const Questions = () => {
   const [randomQuestions, setRandomQuestions] = useState([]);
@@ -11,6 +12,10 @@ const Questions = () => {
   const [selectedOption, setSelectedOption] = useState([]);
   const [progressBar, setProgressBar] = useState(0);
   const [score, setScore] = useState(0);
+  const [quizStartTime, setQuizStartTime] = useState(new Date())
+
+  console.log(quizStartTime)
+
 
   let userInfo = JSON.parse(localStorage.getItem("userLoggedIn"))
 
@@ -18,7 +23,9 @@ const Questions = () => {
   const initialSilderValue = maxSliderValue / randomQuestions.length;
 
   const questions = useSelector((state) => state.questions.questions);
+  const navigate = useNavigate()
 
+  // Selecting options
   const handleOptionSelect = (index) => {
     const updatedOptions = [...selectedOption];
     updatedOptions[questionIndex] = index;
@@ -26,8 +33,8 @@ const Questions = () => {
     console.log(index);
     console.log("updatedoptions", updatedOptions);
   };
-
-  const calculateScore = () => {
+  // Counting score
+  const calculateScore = (timeTaken) => {
     let totalScore = 0;
     randomQuestions.forEach((question, index) => {
       if (selectedOption[index] === question.correct) {
@@ -36,12 +43,17 @@ const Questions = () => {
     });
     const finalScore = totalScore;
     setScore(finalScore);
-    alert(`Your final score is ${finalScore} out of 100`);
+    let text = "Are you sure you want to submit";
+    if (confirm(text) == true) {
+      alert(`Quiz finished, Your final score is ${finalScore} out of 100 and Time taken is ${timeTaken}`);
+    }
     let userInfo = JSON.parse(localStorage.getItem("userLoggedIn"))
     console.log({ userInfo, totalScore, randomQuestions, selectedOption })
-    dispatch(addUserTestRequest({ userInfo, totalScore, randomQuestions, selectedOption }))
+    dispatch(addUserTestRequest({ userInfo, totalScore, randomQuestions, selectedOption, timeTaken }))
+    navigate('/leaderboard')
   };
 
+  //Next button functionality to show new question
   const handleNextQuestion = () => {
     if (selectedOption[questionIndex] === undefined) {
       alert("Please select an answer before moving to the next question.");
@@ -54,22 +66,35 @@ const Questions = () => {
       // // const finalScore = calculateScore();
       // // setScore(finalScore);
       // alert(`Your final score is ${finalScore} out of 100`);
-      calculateScore()
+      const quizEndTime = new Date();
+      console.log(quizEndTime)
+      const timeTaken = calculateTimeTaken(quizStartTime, quizEndTime);
+      calculateScore(timeTaken)
     }
   };
 
+  // calculating time taken by user to finish the game
+  function calculateTimeTaken(startTime, endTime) {
+    const timeDiff = Math.floor((endTime - startTime) / 1000); // Time difference in seconds
+    const minutes = Math.floor(timeDiff / 60);
+    const seconds = timeDiff % 60;
+    return `${minutes} : ${seconds} `;
+  }
+
+
+  // Previuos button functinality
   const handlePreviousQuestion = () => {
     setQuestionIndex(questionIndex - 1);
     setProgressBar(progressBar - 1);
   };
 
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(fetchQuestionRequest());
     console.log(questions);
   }, [dispatch]);
 
+  // Randomly generating 10 questions from main questions
   useEffect(() => {
     const shuffleQuestions = () => {
       let shuffledData = Array.from(questions);
@@ -127,7 +152,7 @@ const Questions = () => {
               {randomQuestions[questionIndex].answers.map((option, index) => (
                 <li
                   id="option-2"
-                  className={`option ${selectedOption[questionIndex] === index ? "selected" : ""
+                  class={`option ${selectedOption[questionIndex] === index ? "selected" : ""
                     }`}
                   key={index}
                   onClick={() => handleOptionSelect(index)}
