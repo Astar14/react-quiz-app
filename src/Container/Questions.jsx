@@ -3,12 +3,63 @@ import userImage from "../assets/user_image.jpg";
 import techpaathshala from "../assets/techpaathshala.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchQuestionRequest } from "../store/questions/questionAction";
+import { addUserTestRequest } from "../store/userTest/userTestAction";
 
 const Questions = () => {
   const [randomQuestions, setRandomQuestions] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [selectedOption, setSelectedOption] = useState([]);
+  const [progressBar, setProgressBar] = useState(0);
+  const [score, setScore] = useState(0);
+
+  const maxSliderValue = 100;
+  const initialSilderValue = maxSliderValue / randomQuestions.length;
 
   const questions = useSelector((state) => state.questions.questions);
+
+  const handleOptionSelect = (index) => {
+    const updatedOptions = [...selectedOption];
+    updatedOptions[questionIndex] = index;
+    setSelectedOption(updatedOptions);
+    console.log(index);
+    console.log("updatedoptions", updatedOptions);
+  };
+
+  const calculateScore = () => {
+    let totalScore = 0;
+    randomQuestions.forEach((question, index) => {
+      if (selectedOption[index] === question.correct) {
+        totalScore += 10;
+      }
+    });
+    const finalScore = totalScore;
+    setScore(finalScore);
+    alert(`Your final score is ${finalScore} out of 100`);
+    let userInfo = JSON.parse(localStorage.getItem("userLoggedIn"))
+    console.log({ userInfo, totalScore, randomQuestions, selectedOption })
+    dispatch(addUserTestRequest({ userInfo, totalScore, randomQuestions, selectedOption }))
+  };
+
+  const handleNextQuestion = () => {
+    if (selectedOption[questionIndex] === undefined) {
+      alert("Please select an answer before moving to the next question.");
+      return;
+    }
+    if (questionIndex < randomQuestions.length - 1) {
+      setQuestionIndex(questionIndex + 1);
+      setProgressBar(progressBar + 1);
+    } else {
+      // // const finalScore = calculateScore();
+      // // setScore(finalScore);
+      // alert(`Your final score is ${finalScore} out of 100`);
+      calculateScore()
+    }
+  };
+
+  const handlePreviousQuestion = () => {
+    setQuestionIndex(questionIndex - 1);
+    setProgressBar(progressBar - 1);
+  };
 
   const dispatch = useDispatch();
 
@@ -21,13 +72,12 @@ const Questions = () => {
     const shuffleQuestions = () => {
       let shuffledData = Array.from(questions);
       shuffledData.sort(() => Math.random() - 0.5);
-      return shuffledData.slice(0, 10);
+      return shuffledData.slice(0, 2);
     };
-    // console.log(shuffleQuestions())
     setRandomQuestions(shuffleQuestions());
-    // console.log(randomQuestions);
   }, [questions]);
   console.log({ randomQuestions });
+
   return (
     <>
       <header id="header">
@@ -54,8 +104,16 @@ const Questions = () => {
           <h1 id="question-number">
             Question {questionIndex + 1} of {randomQuestions.length}
           </h1>
+
           <div id="progressbar-container">
-            <div id="progress-bar"></div>
+            <div
+              id="progress-bar"
+              style={{
+                width: `${initialSilderValue * progressBar +
+                  maxSliderValue / randomQuestions.length
+                  }%`,
+              }}
+            ></div>
           </div>
           <div className="question">
             <h2 id="question-text">
@@ -64,17 +122,30 @@ const Questions = () => {
           </div>
           <div className="answer">
             <ol type="1" id="options-list">
-              <li id="option-1"></li>
-              <li id="option-2"></li>
-              <li id="option-3"></li>
-              <li id="option-4"></li>
+              {randomQuestions[questionIndex].answers.map((option, index) => (
+                <li
+                  id="option-2"
+                  className={`option ${selectedOption[questionIndex] === index ? "selected" : ""
+                    }`}
+                  key={index}
+                  onClick={() => handleOptionSelect(index)}
+                >
+                  {option}
+                </li>
+              ))}
             </ol>
           </div>
-          <button onclick="previousQuestion()" id="prev">
-            <i className="fa-solid fa-arrow-left"></i> Previous
-          </button>
-          <button onclick="nextQuestion()" id="next">
-            Next <i className="fa-solid fa-arrow-right"></i>
+          {questionIndex > 0 && (
+            <button onClick={handlePreviousQuestion} id="prev">
+              <i className="fa-solid fa-arrow-left"></i> Previous
+            </button>
+          )}
+
+          <button onClick={handleNextQuestion} id="next">
+            {questionIndex === randomQuestions.length - 1
+              ? "Finish"
+              : "Next"}{" "}
+            <i className="fa-solid fa-arrow-right"></i>
           </button>
         </section>
       ) : null}

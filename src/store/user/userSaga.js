@@ -27,7 +27,9 @@ function* addUsers(action) {
   
   function* watchaddUsers() {
     yield takeLatest("ADD_USER_REQUEST", addUsers);
-  }
+}
+  
+
 export default function* userSaga() {
   yield all([fork(watchfetchUsers),fork(watchaddUsers)]);
 }

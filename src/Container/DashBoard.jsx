@@ -9,7 +9,6 @@ const DashBoard = () => {
         <header id="header">
         <div id="tech-logo">
           <a href="startquiz.html">
-            {" "}
             <img
               src={techpaathshala}
               alt="techpaathsala"

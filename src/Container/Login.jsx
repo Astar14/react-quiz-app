@@ -7,13 +7,15 @@ import { useNavigate } from "react-router";
 const Login = () => {
   const [loginEmail, setEmail] = useState("");
   const [loginPassword, setpassword] = useState("");
-  const users = useSelector((state) => state.users.users);
 
+  const users = useSelector((state) => state.users.users);
   const dispatch = useDispatch()
-  const navigate= useNavigate()
-  
+
+  const navigate = useNavigate()
+
+
   useEffect(() => {
-   dispatch(fetchUserRequest()) 
+    dispatch(fetchUserRequest())
   }, [dispatch])
   console.log(users)
 
@@ -28,6 +30,7 @@ const Login = () => {
     );
     if (userFound) {
       navigate("/dashboard")
+      localStorage.setItem("userLoggedIn", JSON.stringify(userFound))
       return;
     }
     else {
@@ -49,7 +52,7 @@ const Login = () => {
         <form onSubmit={handleSubmitForm}>
           <div className="email">
             <label>
-              Email ID<span style={{color:"red"}}>*</span>
+              Email ID<span style={{ color: "red" }}>*</span>
             </label>
             <input
               id="emailInput"
@@ -61,7 +64,7 @@ const Login = () => {
           </div>
           <div className="password">
             <label>
-              Password<span style={{color:"red"}}>*</span>
+              Password<span style={{ color: "red" }}>*</span>
             </label>
             <i id="eye-icon" className="icon fa-regular fa-eye-slash"></i>
             <input

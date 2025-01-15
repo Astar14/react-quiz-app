@@ -13,6 +13,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [checkBox, setCheckBox] = useState(false);
   const [eyeToggle, setEyeToggle] = useState(false);
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -48,13 +49,13 @@ const SignUp = () => {
       );
       return;
     }
-    if (emailExists) {
-      alert("This email is already registered. Please use a different email.");
-      return;
-    } else if (passwordExists) {
-      alert("This password is already exist. Please use a different password.");
-      return;
-    }
+    // if (emailExists) {
+    //   alert("This email is already registered. Please use a different email.");
+    //   return;
+    // } else if (passwordExists) {
+    //   alert("This password is already exist. Please use a different password.");
+    //   return;
+    // }
     if (!checkBox) {
       alert("Accept the terms and conditions");
       return;
@@ -65,6 +66,7 @@ const SignUp = () => {
     }
     console.log(fullName, email, password);
   };
+
 
   return (
     <>
