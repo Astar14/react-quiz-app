@@ -4,6 +4,10 @@ import userImage from "../assets/user_image.jpg"
 import { Link } from 'react-router'
 
 const DashBoard = () => {
+
+  let userData = JSON.parse(localStorage.getItem("userLoggedIn"))
+
+
   return (
       <>
         <header id="header">
@@ -22,10 +26,9 @@ const DashBoard = () => {
               <li></li>
             </a>
             <li>Welcome,</li>
-            <li>A</li>
+            <li>{userData.fullName}</li>
             <img
               id="popup"
-              onclick="popUp()"
               src={userImage}
               alt="userimage"
             />

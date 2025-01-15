@@ -221,6 +221,46 @@
         0,
         0
       ]
+    },
+    {
+      "id": "ab06",
+      "userInfo": {
+        "id": "7779",
+        "fullName": "Amit",
+        "email": "amit@gmail.com",
+        "password": "Amit@123"
+      },
+      "totalScore": 0,
+      "randomQuestions": [
+        {
+          "question": "What does the typeof operator return when applied to an object?",
+          "answers": [
+            "Array",
+            "Object",
+            "Function",
+            "Undefined"
+          ],
+          "correct": 1,
+          "choosedAnswer": null,
+          "id": "3372"
+        },
+        {
+          "question": "What symbol is used for comments in JavaScript?",
+          "answers": [
+            "//",
+            "/* */",
+            "#",
+            "!-- --"
+          ],
+          "correct": 0,
+          "choosedAnswer": null,
+          "id": "cbda"
+        }
+      ],
+      "selectedOption": [
+        0,
+        1
+      ]
     }
   ]
 }

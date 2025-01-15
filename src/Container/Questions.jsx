@@ -12,6 +12,8 @@ const Questions = () => {
   const [progressBar, setProgressBar] = useState(0);
   const [score, setScore] = useState(0);
 
+  let userInfo = JSON.parse(localStorage.getItem("userLoggedIn"))
+
   const maxSliderValue = 100;
   const initialSilderValue = maxSliderValue / randomQuestions.length;
 
@@ -93,7 +95,7 @@ const Questions = () => {
               <li></li>
             </a>
             <li>Welcome,</li>
-            <li>A</li>
+            <li>{userInfo.fullName}</li>
             <img id="popup" src={userImage} alt="userimage" />
           </ul>
         </div>
