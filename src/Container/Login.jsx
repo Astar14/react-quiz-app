@@ -3,10 +3,13 @@ import brainImage from "../assets/brain-image.png";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserRequest } from "../store/user/userAction";
 import { useNavigate } from "react-router";
+import { FaEyeSlash } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 
 const Login = () => {
   const [loginEmail, setEmail] = useState("");
   const [loginPassword, setpassword] = useState("");
+   const [eyeToggle, setEyeToggle] = useState(false);
 
   const users = useSelector((state) => state.users.users);
   const dispatch = useDispatch()
@@ -66,13 +69,18 @@ const Login = () => {
             <label>
               Password<span style={{ color: "red" }}>*</span>
             </label>
-            <i id="eye-icon" className="icon fa-regular fa-eye-slash"></i>
+            {eyeToggle ? (
+              <FaEye className="icon" onClick={() => setEyeToggle(false)} />
+            ) : (
+              <FaEyeSlash className="icon" onClick={() => setEyeToggle(true)} />
+            )}
+          
             <input
               id="password"
               value={loginPassword}
               onChange={(e) => setpassword(e.target.value)}
               className="passwordInput"
-              type="password"
+              type={eyeToggle ? "text" : "password"}
               placeholder="Password"
             />
           </div>

@@ -15,13 +15,11 @@ const LeaderBoard = () => {
   const dispatch = useDispatch()
 
   const [sortedUsers, setSortedUsers] = useState([]);
- // const [currentUser, setCurrentUser] = useState(null);
   const [userIndex, setUserIndex] = useState(null)
   const [currentUserMarks, setCurrentUserMarks] = useState(null)
 
   let userData = JSON.parse(localStorage.getItem("userLoggedIn"))
   console.log(userData.email)
-  // const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
 
   useEffect(() => {
     dispatch(fetchUserTestRequest());
@@ -33,10 +31,6 @@ const LeaderBoard = () => {
     console.log(sortedData)
   }, [userTests]);
 
-  // useEffect(() => {
-  //   const currentUser = JSON.parse(localStorage.getItem("loggedInUser")) || [];
-  //   setCurrentUser(currentUser[0]);
-  // }, []);
 
   useEffect(() => {
     if (userData && sortedUsers.length > 0) {
