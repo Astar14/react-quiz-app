@@ -99,7 +99,7 @@ const Questions = () => {
     const shuffleQuestions = () => {
       let shuffledData = Array.from(questions);
       shuffledData.sort(() => Math.random() - 0.5);
-      return shuffledData.slice(0, 2);
+      return shuffledData.slice(0, 5);
     };
     setRandomQuestions(shuffleQuestions());
   }, [questions]);
