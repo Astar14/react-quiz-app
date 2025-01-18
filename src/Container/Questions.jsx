@@ -13,6 +13,7 @@ const Questions = () => {
   const [progressBar, setProgressBar] = useState(0);
   const [score, setScore] = useState(0);
   const [quizStartTime, setQuizStartTime] = useState(new Date())
+  const [logoutToggle, setLogoutToggle] = useState(false)
   console.log(quizStartTime)
 
 
@@ -23,6 +24,16 @@ const Questions = () => {
 
   const questions = useSelector((state) => state.questions.questions);
   const userTests = useSelector((state) => state.userTests.userTests);
+
+
+  const logoutButton = () => {
+    console.log("Logout..")
+  }
+  
+  const openLogoutPopUp = () => {
+    console.log("opening..")
+    setLogoutToggle(!logoutToggle)
+  }
 
 
   console.log(userTests)
@@ -132,7 +143,7 @@ const Questions = () => {
             </a>
             <li>Welcome,</li>
             <li>{userInfo.fullName}</li>
-            <img id="popup" src={userImage} alt="userimage" />
+            <img id="popup" src={userImage} alt="userimage"  />
           </ul>
         </div>
       </header>
@@ -191,7 +202,7 @@ const Questions = () => {
       <div id="logout-container">
         <p id="my-name">Hii, Amit</p>
         <p id="my-email">amit2546@gmail.com</p>
-        <button id="logout-button" onclick="logout()">
+        <button id="logout-button" onClick={logoutButton}>
           Logout
         </button>
         <button id="logout-button">Edit</button>

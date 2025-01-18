@@ -262,7 +262,6 @@
     left: 260px;
     /* padding-top: 28px; */
     padding-left: 18px;
-    display: none;
     z-index: 1001;
   }
   
@@ -309,7 +308,6 @@
     left: 45%;
     transform: translateX(-50%);
     padding: 8px;
-    display: none;
     z-index: 1001;
   }
   

@@ -17,6 +17,21 @@ function* watchfetchQuestions() {
   yield takeLatest("FETCH_QUESTION_REQUEST", fetchQuestions);
 }
 
+
+function* addQuestions(action) {
+  try {
+      const response = yield call(axios.post, apiUrl, action.payload);
+      console.log({response })
+    yield put({ type: "ADD_QUESTION_SUCCESS", payload: response.data });
+  } catch (error) {
+    yield put({ type: "ADD_QUESTION_FAILURE", payload: error.message });
+  }
+}
+
+function* watchaddQuestions() {
+  yield takeLatest("ADD_QUESTION_REQUEST", addQuestions);
+}
+
 export default function* questionSaga() {
-  yield all([fork(watchfetchQuestions)]);
+  yield all([fork(watchfetchQuestions), fork(watchaddQuestions)]);
 }

@@ -10,6 +10,7 @@ import AdminDashboard from './admin/AdminDashboard'
 import UsersInformation from './admin/UsersInformation'
 import TestDetails from './admin/TestDetails'
 import FullTestDetails from './admin/FullTestDetails'
+import Quizzes from "./admin/Quizzes"
 
 function App() {
 
@@ -22,9 +23,11 @@ function App() {
       <Route path='/leaderboard' element={<LeaderBoardPage />} />
       <Route path='/adminlogin' element={<AdminLogin />} />
       <Route path='/admindashboard' element={<AdminDashboard />} />
+      <Route path='/quizzes' element={<Quizzes />} />
       <Route path='/userinfo' element={<UsersInformation />} />
-      <Route path='/testdetails' element={<TestDetails />} />
-      <Route path='/fulltestdetails' element={<FullTestDetails/>}/>
+      <Route path='/testdetails/:id' element={<TestDetails />} />
+
+      <Route path='/fulltestdetails/:id/:testIndex' element={<FullTestDetails/>}/>
     </Routes>
   )
 }
