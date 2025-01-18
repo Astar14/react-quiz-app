@@ -5,6 +5,11 @@ import SignUpPage from './Pages/SignUpPage'
 import DashboardPage from './Pages/DashboardPage'
 import QuestionPage from './Pages/QuestionPage'
 import LeaderBoardPage from './Pages/LeaderBoardPage'
+import AdminLogin from './admin/AdminLogin'
+import AdminDashboard from './admin/AdminDashboard'
+import UsersInformation from './admin/UsersInformation'
+import TestDetails from './admin/TestDetails'
+import FullTestDetails from './admin/FullTestDetails'
 
 function App() {
 
@@ -14,7 +19,12 @@ function App() {
       <Route path="/signup" element={<SignUpPage />} />
       <Route path='/dashboard' element={<DashboardPage />} />
       <Route path='/question' element={<QuestionPage />} />
-      <Route path='/leaderboard' element={ <LeaderBoardPage/>} />
+      <Route path='/leaderboard' element={<LeaderBoardPage />} />
+      <Route path='/adminlogin' element={<AdminLogin />} />
+      <Route path='/admindashboard' element={<AdminDashboard />} />
+      <Route path='/userinfo' element={<UsersInformation />} />
+      <Route path='/testdetails' element={<TestDetails />} />
+      <Route path='/fulltestdetails' element={<FullTestDetails/>}/>
     </Routes>
   )
 }
