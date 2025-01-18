@@ -35,15 +35,15 @@ const LeaderBoard = () => {
   useEffect(() => {
     if (userData && sortedUsers.length > 0) {
       const index = sortedUsers.findIndex(
-        (user) => user.userInfo.fullName === userData.fullName
+        (user) => user.fullName === userData.fullName
       ) + 1;
-      const user = sortedUsers.find((user) => user.userInfo.email === userData.email);
+      const user = sortedUsers.find((user) => user.email === userData.email);
       console.log(user)
       setUserIndex(index);
       setCurrentUserMarks(user.totalScore);
-      
+
     }
-  }, [sortedUsers,userData]);
+  }, [sortedUsers, userData]);
 
 
   return (
@@ -87,7 +87,7 @@ const LeaderBoard = () => {
                 </div>
 
                 <div className="circle">
-                  <p className="username">{user.userInfo.fullName}</p>
+                  <p className="username">{user.fullName}</p>
                   {/* <img src={mypic} alt="" /> */}
                 </div>
               </div>
@@ -106,7 +106,7 @@ const LeaderBoard = () => {
                 </div>
                 <div className="circle">
                   {/* <img src={mypic} alt="" /> */}
-                  <p className="username">{user.userInfo.fullName}</p>
+                  <p className="username">{user.fullName}</p>
                 </div>
               </div>
             </div>
@@ -116,31 +116,31 @@ const LeaderBoard = () => {
         {
           sortedUsers.slice(2, 3).map((user) => (
             <div id="third-rank-container">
-            <div className="third-rank">
-              <div className="bg-color3"><p className="rank2">#3</p></div>
-              <div className="actual-score3">
-                <h2>Score</h2>
+              <div className="third-rank">
+                <div className="bg-color3"><p className="rank2">#3</p></div>
+                <div className="actual-score3">
+                  <h2>Score</h2>
                   <p>{user.totalScore}</p>
-              </div>
-              <div className="circle">
-                {/* <img src={mypic} alt="" /> */}
-                  <p className="username">{user.userInfo.fullName}</p>
+                </div>
+                <div className="circle">
+                  {/* <img src={mypic} alt="" /> */}
+                  <p className="username">{user.fullName}</p>
+                </div>
               </div>
             </div>
-          </div>
           ))
-      }
-      
+        }
+
 
         <div className="radius-design">
           <img src={vector} alt="" />
           <div className="ranking-board">
             {
-              sortedUsers.slice(3, 6).map((user,index) => (
+              sortedUsers.slice(3, 6).map((user, index) => (
                 <div className="ranking">
-                  <p className="user-name"><span>#{index +4 }</span> {user.userInfo.fullName}</p>
+                  <p className="user-name"><span>#{index + 4}</span> {user.fullName}</p>
                   <p className="user-name">{user.totalScore}</p>
-            </div>
+                </div>
               ))
             }
             {/* <div className="ranking">

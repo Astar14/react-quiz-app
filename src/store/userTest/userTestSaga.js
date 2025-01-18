@@ -17,19 +17,39 @@ function* watchfetchUserTests() {
 }
 
 function* addUserTests(action) {
-    try {
-      const response = yield call(axios.post, apiUrl, action.payload);
-      yield put({ type: "ADD_USERTEST_SUCCESS", payload: response.data });
-    } catch (error) {
-      yield put({ type: "ADD_USERTEST_FAILURE", payload: error.message });
-    }
+  try {
+    const response = yield call(axios.post, apiUrl, action.payload);
+    yield put({ type: "ADD_USERTEST_SUCCESS", payload: response.data });
+  } catch (error) {
+    yield put({ type: "ADD_USERTEST_FAILURE", payload: error.message });
   }
-  
-  function* watchaddUserTests() {
-    yield takeLatest("ADD_USERTEST_REQUEST", addUserTests);
 }
-  
+
+function* watchaddUserTests() {
+  yield takeLatest("ADD_USERTEST_REQUEST", addUserTests);
+}
+
+function* upadteUserTests(action) {
+  try {
+    const response = yield call(
+      axios.put,
+      `${apiUrl}/${action.payload.id}`,
+      action.payload
+    );
+    yield put({ type: "UPDATE_USERTEST_SUCCESS", payload: response.data });
+  } catch (error) {
+    yield put({ type: "UPDATE_USERTEST_FAILURE", payload: error.message });
+  }
+}
+
+function* watchupdateUserTests() {
+  yield takeLatest("UPDATE_USERTEST_REQUEST", upadteUserTests);
+}
 
 export default function* userTestsSaga() {
-  yield all([fork(watchfetchUserTests),fork(watchaddUserTests)]);
+  yield all([
+    fork(watchfetchUserTests),
+    fork(watchaddUserTests),
+    fork(watchupdateUserTests),
+  ]);
 }

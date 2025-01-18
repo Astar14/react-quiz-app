@@ -281,404 +281,304 @@
   ],
   "userTests": [
     {
-      "id": "4925",
-      "userInfo": {
-        "id": "7779",
-        "fullName": "Amit",
-        "email": "amit@gmail.com",
-        "password": "Amit@123"
-      },
-      "totalScore": 50,
-      "randomQuestions": [
-        {
-          "question": "What is the use of the 'key' prop in React?",
-          "answers": [
-            "To identify unique elements in an array for re-rendering",
-            "To apply CSS styles dynamically",
-            "To pass data between components",
-            "To define the default state"
-          ],
-          "correct": 0,
-          "choosedAnswer": null,
-          "id": "8b5a"
-        },
-        {
-          "question": "What is the largest mammal in the world?",
-          "answers": [
-            "Elephant",
-            "Blue Whale",
-            "Giraffe",
-            "Shark"
-          ],
-          "correct": 1,
-          "choosedAnswer": null,
-          "id": "5433"
-        },
-        {
-          "question": "How can you create a new branch in Git?",
-          "answers": [
-            "git create branch [branch-name]",
-            "git branch [branch-name]",
-            "git new branch [branch-name]",
-            "git checkout [branch-name]"
-          ],
-          "correct": 1,
-          "choosedAnswer": null,
-          "id": "fd3e"
-        },
-        {
-          "question": "Which of the following is a valid way to declare a function in JavaScript?",
-          "answers": [
-            "function myFunction() {}",
-            "let myFunction = function() {}",
-            "const myFunction = () => {}",
-            "All of the above"
-          ],
-          "correct": 3,
-          "choosedAnswer": null,
-          "id": "0c43"
-        },
-        {
-          "question": "What does the typeof operator return when applied to an object?",
-          "answers": [
-            "Array",
-            "Object",
-            "Function",
-            "Undefined"
-          ],
-          "correct": 1,
-          "choosedAnswer": null,
-          "id": "3372"
-        }
-      ],
-      "selectedOption": [
-        0,
-        1,
-        1,
-        3,
-        1
-      ],
-      "timeTaken": "0 : 22 "
-    },
-    {
-      "id": "c80f",
-      "userInfo": {
-        "id": "e668",
-        "fullName": "Ganesh",
-        "email": "ganesh@gmail.com",
-        "password": "Ganesh@12"
-      },
-      "totalScore": 40,
-      "randomQuestions": [
-        {
-          "question": "In React, how do you update the state of a component?",
-          "answers": [
-            "Directly modify the state variable",
-            "Use the setState or updater function",
-            "Call the render() method again",
-            "Update the DOM manually"
-          ],
-          "correct": 1,
-          "choosedAnswer": null,
-          "id": "ee6f"
-        },
-        {
-          "question": "What does NaN represent in JavaScript?",
-          "answers": [
-            "Not a Node",
-            "Not a Number",
-            "No available number",
-            "None of the above"
-          ],
-          "correct": 1,
-          "choosedAnswer": null,
-          "id": "e7de"
-        },
-        {
-          "question": "What is the square root of 64?",
-          "answers": [
-            "6",
-            "7",
-            "8",
-            "9"
-          ],
-          "correct": 2,
-          "choosedAnswer": null,
-          "id": "810d"
-        },
-        {
-          "question": "Which of the following is a valid way to declare a function in JavaScript?",
-          "answers": [
-            "function myFunction() {}",
-            "let myFunction = function() {}",
-            "const myFunction = () => {}",
-            "All of the above"
-          ],
-          "correct": 3,
-          "choosedAnswer": null,
-          "id": "0c43"
-        },
-        {
-          "question": "What does the typeof operator return when applied to an object?",
-          "answers": [
-            "Array",
-            "Object",
-            "Function",
-            "Undefined"
-          ],
-          "correct": 1,
-          "choosedAnswer": null,
-          "id": "3372"
-        }
-      ],
-      "selectedOption": [
-        1,
-        1,
-        0,
-        3,
-        1
-      ],
-      "timeTaken": "0 : 30 "
-    },
-    {
-      "id": "64c8",
-      "userInfo": {
-        "id": "83ae",
-        "fullName": "Ajay",
-        "email": "ajay@gmail.com",
-        "password": "Ajay@1234"
-      },
+      "id": "a070",
+      "fullName": "Amit",
+      "email": "amit@gmail.com",
       "totalScore": 30,
-      "randomQuestions": [
+      "tests": [
         {
-          "question": "What does the 'tailwind.config.js' file do?",
-          "answers": [
-            "Configures the Tailwind CLI",
-            "Customizes default styles and themes in Tailwind CSS",
-            "Creates a new Tailwind project",
-            "Adds Tailwind plugins to a project"
+          "totalScore": 40,
+          "randomQuestions": [
+            {
+              "question": "Which command initializes a new Git repository?",
+              "answers": [
+                "git init",
+                "git start",
+                "git create",
+                "git repo"
+              ],
+              "correct": 0,
+              "choosedAnswer": null,
+              "id": "6704"
+            },
+            {
+              "question": "Which Tailwind CSS class is used to align text to the center?",
+              "answers": [
+                "text-center",
+                "align-middle",
+                "text-align",
+                "center-text"
+              ],
+              "correct": 0,
+              "choosedAnswer": null,
+              "id": "3c1a"
+            },
+            {
+              "question": "Which function is used to parse a string to an integer in JavaScript?",
+              "answers": [
+                "parseInt()",
+                "parseFloat()",
+                "Number()",
+                "int()"
+              ],
+              "correct": 0,
+              "choosedAnswer": null,
+              "id": "d77f"
+            },
+            {
+              "question": "Which utility class in Tailwind CSS applies padding to all sides of an element?",
+              "answers": [
+                "p-4",
+                "pt-4",
+                "ml-4",
+                "text-4xl"
+              ],
+              "correct": 0,
+              "choosedAnswer": null,
+              "id": "dc18"
+            },
+            {
+              "question": "How can you create a new branch in Git?",
+              "answers": [
+                "git create branch [branch-name]",
+                "git branch [branch-name]",
+                "git new branch [branch-name]",
+                "git checkout [branch-name]"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "fd3e"
+            }
           ],
-          "correct": 1,
-          "choosedAnswer": null,
-          "id": "e4a2"
+          "selectedOption": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "timeTaken": "0 : 12 "
         },
         {
-          "question": "What is the square root of 64?",
-          "answers": [
-            "6",
-            "7",
-            "8",
-            "9"
+          "totalScore": 0,
+          "randomQuestions": [
+            {
+              "question": "Which of the following is a valid way to declare a function in JavaScript?",
+              "answers": [
+                "function myFunction() {}",
+                "let myFunction = function() {}",
+                "const myFunction = () => {}",
+                "All of the above"
+              ],
+              "correct": 3,
+              "choosedAnswer": null,
+              "id": "0c43"
+            },
+            {
+              "question": "What does the typeof operator return when applied to an object?",
+              "answers": [
+                "Array",
+                "Object",
+                "Function",
+                "Undefined"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "3372"
+            },
+            {
+              "question": "Which function is used to parse a string to an integer in JavaScript?",
+              "answers": [
+                "parseInt()",
+                "parseFloat()",
+                "Number()",
+                "int()"
+              ],
+              "correct": 0,
+              "choosedAnswer": null,
+              "id": "d77f"
+            },
+            {
+              "question": "What does the 'tailwind.config.js' file do?",
+              "answers": [
+                "Configures the Tailwind CLI",
+                "Customizes default styles and themes in Tailwind CSS",
+                "Creates a new Tailwind project",
+                "Adds Tailwind plugins to a project"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "e4a2"
+            },
+            {
+              "question": "Which method is used to remove the last element from an array?",
+              "answers": [
+                "delete()",
+                "shift()",
+                "pop()",
+                "slice()"
+              ],
+              "correct": 2,
+              "choosedAnswer": null,
+              "id": "ef95"
+            }
           ],
-          "correct": 2,
-          "choosedAnswer": null,
-          "id": "810d"
+          "selectedOption": [
+            2,
+            2,
+            1,
+            2,
+            1
+          ],
+          "timeTaken": "0 : 12 "
         },
         {
-          "question": "What symbol is used for comments in JavaScript?",
-          "answers": [
-            "//",
-            "/* */",
-            "#",
-            "!-- --"
+          "totalScore": 10,
+          "randomQuestions": [
+            {
+              "question": "What does NaN represent in JavaScript?",
+              "answers": [
+                "Not a Node",
+                "Not a Number",
+                "No available number",
+                "None of the above"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "e7de"
+            },
+            {
+              "question": "What does the typeof operator return when applied to an object?",
+              "answers": [
+                "Array",
+                "Object",
+                "Function",
+                "Undefined"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "3372"
+            },
+            {
+              "question": "What does CSS stand for?",
+              "answers": [
+                "Computer Style Sheets",
+                "Creative Style Sheets",
+                "Cascading Style Sheets",
+                "Colorful Style Sheets"
+              ],
+              "correct": 2,
+              "choosedAnswer": null,
+              "id": "9324"
+            },
+            {
+              "question": "What does SQL stand for?",
+              "answers": [
+                "Structured Query Language",
+                "Simple Query Language",
+                "Statement Query Language",
+                "Standard Query Language"
+              ],
+              "correct": 0,
+              "choosedAnswer": null,
+              "id": "0f9c"
+            },
+            {
+              "question": "Which Git command is used to upload changes to a remote repository?",
+              "answers": [
+                "git commit",
+                "git push",
+                "git merge",
+                "git fetch"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "8728"
+            }
           ],
-          "correct": 0,
-          "choosedAnswer": null,
-          "id": "cbda"
+          "selectedOption": [
+            2,
+            2,
+            1,
+            2,
+            1
+          ],
+          "timeTaken": "1 : 23 "
         },
         {
-          "question": "What does CSS stand for?",
-          "answers": [
-            "Computer Style Sheets",
-            "Creative Style Sheets",
-            "Cascading Style Sheets",
-            "Colorful Style Sheets"
+          "totalScore": 30,
+          "randomQuestions": [
+            {
+              "question": "What is the square root of 64?",
+              "answers": [
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "correct": 2,
+              "choosedAnswer": null,
+              "id": "810d"
+            },
+            {
+              "question": "In React, how do you update the state of a component?",
+              "answers": [
+                "Directly modify the state variable",
+                "Use the setState or updater function",
+                "Call the render() method again",
+                "Update the DOM manually"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "ee6f"
+            },
+            {
+              "question": "What does the typeof operator return when applied to an object?",
+              "answers": [
+                "Array",
+                "Object",
+                "Function",
+                "Undefined"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "3372"
+            },
+            {
+              "question": "What does SQL stand for?",
+              "answers": [
+                "Structured Query Language",
+                "Simple Query Language",
+                "Statement Query Language",
+                "Standard Query Language"
+              ],
+              "correct": 0,
+              "choosedAnswer": null,
+              "id": "0f9c"
+            },
+            {
+              "question": "What symbol is used for comments in JavaScript?",
+              "answers": [
+                "//",
+                "/* */",
+                "#",
+                "!-- --"
+              ],
+              "correct": 0,
+              "choosedAnswer": null,
+              "id": "cbda"
+            }
           ],
-          "correct": 2,
-          "choosedAnswer": null,
-          "id": "9324"
-        },
-        {
-          "question": "How can you create a new branch in Git?",
-          "answers": [
-            "git create branch [branch-name]",
-            "git branch [branch-name]",
-            "git new branch [branch-name]",
-            "git checkout [branch-name]"
+          "selectedOption": [
+            1,
+            1,
+            1,
+            0,
+            1
           ],
-          "correct": 1,
-          "choosedAnswer": null,
-          "id": "fd3e"
+          "timeTaken": "0 : 23 "
         }
-      ],
-      "selectedOption": [
-        3,
-        2,
-        0,
-        2,
-        3
-      ],
-      "timeTaken": "0 : 26 "
-    },
-    {
-      "id": "d2eb",
-      "userInfo": {
-        "id": "7779",
-        "fullName": "Amit",
-        "email": "amit@gmail.com",
-        "password": "Amit@123"
-      },
-      "totalScore": 10,
-      "randomQuestions": [
-        {
-          "question": "What is the square root of 64?",
-          "answers": [
-            "6",
-            "7",
-            "8",
-            "9"
-          ],
-          "correct": 2,
-          "choosedAnswer": null,
-          "id": "810d"
-        },
-        {
-          "question": "Which of the following is true about the virtual DOM in React?",
-          "answers": [
-            "It directly updates the real DOM",
-            "It creates a lightweight copy of the real DOM",
-            "It is used for server-side rendering only",
-            "It replaces the real DOM completely"
-          ],
-          "correct": 1,
-          "choosedAnswer": null,
-          "id": "f08a"
-        },
-        {
-          "question": "What does NaN represent in JavaScript?",
-          "answers": [
-            "Not a Node",
-            "Not a Number",
-            "No available number",
-            "None of the above"
-          ],
-          "correct": 1,
-          "choosedAnswer": null,
-          "id": "e7de"
-        },
-        {
-          "question": "What is the largest mammal in the world?",
-          "answers": [
-            "Elephant",
-            "Blue Whale",
-            "Giraffe",
-            "Shark"
-          ],
-          "correct": 1,
-          "choosedAnswer": null,
-          "id": "5433"
-        },
-        {
-          "question": "What is the use of the 'key' prop in React?",
-          "answers": [
-            "To identify unique elements in an array for re-rendering",
-            "To apply CSS styles dynamically",
-            "To pass data between components",
-            "To define the default state"
-          ],
-          "correct": 0,
-          "choosedAnswer": null,
-          "id": "8b5a"
-        }
-      ],
-      "selectedOption": [
-        2,
-        0,
-        0,
-        3,
-        3
-      ],
-      "timeTaken": "0 : 35 "
-    },
-    {
-      "id": "da0d",
-      "userInfo": {
-        "id": "7600",
-        "fullName": "anshika",
-        "email": "anshika@gmail.com",
-        "password": "Anshika@1"
-      },
-      "totalScore": 0,
-      "randomQuestions": [
-        {
-          "question": "What is the primary purpose of React?",
-          "answers": [
-            "To manage the backend of an application",
-            "To build reusable UI components",
-            "To create REST APIs",
-            "To handle database operations"
-          ],
-          "correct": 1,
-          "choosedAnswer": null,
-          "id": "8c51"
-        },
-        {
-          "question": "What does SQL stand for?",
-          "answers": [
-            "Structured Query Language",
-            "Simple Query Language",
-            "Statement Query Language",
-            "Standard Query Language"
-          ],
-          "correct": 0,
-          "choosedAnswer": null,
-          "id": "0f9c"
-        },
-        {
-          "question": "Which Git command is used to upload changes to a remote repository?",
-          "answers": [
-            "git commit",
-            "git push",
-            "git merge",
-            "git fetch"
-          ],
-          "correct": 1,
-          "choosedAnswer": null,
-          "id": "8728"
-        },
-        {
-          "question": "What is the square root of 64?",
-          "answers": [
-            "6",
-            "7",
-            "8",
-            "9"
-          ],
-          "correct": 2,
-          "choosedAnswer": null,
-          "id": "810d"
-        },
-        {
-          "question": "In React, how do you update the state of a component?",
-          "answers": [
-            "Directly modify the state variable",
-            "Use the setState or updater function",
-            "Call the render() method again",
-            "Update the DOM manually"
-          ],
-          "correct": 1,
-          "choosedAnswer": null,
-          "id": "ee6f"
-        }
-      ],
-      "selectedOption": [
-        3,
-        3,
-        3,
-        3,
-        3
-      ],
-      "timeTaken": "0 : 58 "
+      ]
     }
   ]
 }

@@ -3,7 +3,7 @@ import userImage from "../assets/user_image.jpg";
 import techpaathshala from "../assets/techpaathshala.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchQuestionRequest } from "../store/questions/questionAction";
-import { addUserTestRequest } from "../store/userTest/userTestAction";
+import { addUserTestRequest, fetchUserTestRequest, updateUserTestRequest } from "../store/userTest/userTestAction";
 import { useNavigate } from "react-router";
 
 const Questions = () => {
@@ -13,7 +13,6 @@ const Questions = () => {
   const [progressBar, setProgressBar] = useState(0);
   const [score, setScore] = useState(0);
   const [quizStartTime, setQuizStartTime] = useState(new Date())
-
   console.log(quizStartTime)
 
 
@@ -23,6 +22,10 @@ const Questions = () => {
   const initialSilderValue = maxSliderValue / randomQuestions.length;
 
   const questions = useSelector((state) => state.questions.questions);
+  const userTests = useSelector((state) => state.userTests.userTests);
+
+
+  console.log(userTests)
   const navigate = useNavigate()
 
   // Selecting options
@@ -47,9 +50,18 @@ const Questions = () => {
     if (confirm(text) == true) {
       alert(`Quiz finished, Your final score is ${finalScore} out of 100 and Time taken is ${timeTaken}`);
     }
+
+    const test = { totalScore, randomQuestions, selectedOption, timeTaken }
     let userInfo = JSON.parse(localStorage.getItem("userLoggedIn"))
-    console.log({ userInfo, totalScore, randomQuestions, selectedOption })
-    dispatch(addUserTestRequest({ userInfo, totalScore, randomQuestions, selectedOption, timeTaken }))
+    const user = userTests.find((user) => userInfo.email === user.email)
+
+    if (user) {
+      const updatedTests = [...user.tests, test]
+      console.log({ totalScore, tests: [updatedTests] })
+      dispatch(updateUserTestRequest({ id: user.id, fullName: userInfo.fullName, email: userInfo.email, totalScore, tests: updatedTests }))
+    } else {
+      dispatch(addUserTestRequest({ fullName: userInfo.fullName, email: userInfo.email, totalScore: totalScore, tests: [test] }))
+    }
     navigate('/leaderboard')
   };
 
@@ -62,10 +74,8 @@ const Questions = () => {
     if (questionIndex < randomQuestions.length - 1) {
       setQuestionIndex(questionIndex + 1);
       setProgressBar(progressBar + 1);
-    } else {
-      // // const finalScore = calculateScore();
-      // // setScore(finalScore);
-      // alert(`Your final score is ${finalScore} out of 100`);
+    }
+    else {
       const quizEndTime = new Date();
       console.log(quizEndTime)
       const timeTaken = calculateTimeTaken(quizStartTime, quizEndTime);
@@ -91,6 +101,7 @@ const Questions = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchQuestionRequest());
+    dispatch(fetchUserTestRequest())
     console.log(questions);
   }, [dispatch]);
 
@@ -99,7 +110,7 @@ const Questions = () => {
     const shuffleQuestions = () => {
       let shuffledData = Array.from(questions);
       shuffledData.sort(() => Math.random() - 0.5);
-      return shuffledData.slice(0, 5);
+      return shuffledData.slice(0, 3);
     };
     setRandomQuestions(shuffleQuestions());
   }, [questions]);
