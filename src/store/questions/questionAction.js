@@ -40,4 +40,18 @@ export const deleteQuestionRequest = (id) => ({
   export const deleteQuestionFailure = (error) => ({
     type: "DELETE_QUESTION_FAILURE",
     error,
+});
+  
+export const updateQuestionRequest = (payload) => ({
+    type: "UPDATE_QUESTION_REQUEST",
+    payload,
+  });
+  
+  export const updateQuestionSuccess = (payload) => ({
+    type: "UPDATE_QUESTION_SUCCESS",
+    payload,
+  });
+  
+  export const updateQuestionFailure = () => ({
+    type: "UPDATE_QUESTION_FAILURE",
   });

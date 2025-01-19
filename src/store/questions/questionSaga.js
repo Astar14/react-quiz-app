@@ -45,10 +45,29 @@ function* watchdeleteQuestions() {
   yield takeLatest("DELETE_QUESTION_REQUEST", deleteQuestions);
 }
 
+function* upadteQuestion(action) {
+  console.log(action.payload.id);
+  try {
+    const response = yield call(
+      axios.put,
+      `${apiUrl}/${action.payload.id}`,
+      action.payload
+    );
+    yield put({ type: "UPDATE_QUESTION_SUCCESS", payload: response.data });
+  } catch (error) {
+    yield put({ type: "UPDATE_QUESTION_FAILURE", payload: error.message });
+  }
+}
+
+function* watchupdateQuestion() {
+  yield takeLatest("UPDATE_QUESTION_REQUEST", upadteQuestion);
+}
+
 export default function* questionSaga() {
   yield all([
     fork(watchfetchQuestions),
     fork(watchaddQuestions),
     fork(watchdeleteQuestions),
+    fork(watchupdateQuestion),
   ]);
 }

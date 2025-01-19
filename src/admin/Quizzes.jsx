@@ -8,12 +8,14 @@ import ViewQuestionModel from '../components/ViewQuestionModel';
 import { useState } from 'react';
 import AddQuestionModel from '../components/AddQuestionModel';
 import Sidebar from '../components/Sidebar';
+import UpdateQuestionModel from '../components/UpdateQuestionModel';
 
 const Quizzes = () => {
 
   const [selectedQuestion, setSelectedQuestion] = useState(null)
   const [viewQuestionModel, setViewQuestionModel] = useState(false)
   const [addQuestionModel, setAddQuestionModel] = useState(false)
+  const [updateQuestionModel, setUpdateQuestionModel] = useState(false)
 
   const questions = useSelector((state) => state.questions.questions)
   const dispatch = useDispatch()
@@ -32,6 +34,11 @@ const Quizzes = () => {
     }
   }
 
+  const handleUpdateQuestionModel = (question) => {
+    setSelectedQuestion(question)
+    console.log(selectedQuestion)
+    setUpdateQuestionModel(!updateQuestionModel)
+  }
 
   useEffect(() => {
     dispatch(fetchQuestionRequest())
@@ -59,33 +66,14 @@ const Quizzes = () => {
       </header>
 
       <div class="admin-main-ciontainer">
-        {/* <section class="sidebar">
-          <h2>Dashboard</h2>
-          <ul>
-            <a href="adminDashboard.html"> <li><i class="fa-solid fa-house"></i>Home</li></a>
 
-            <li>
-              <i class="fa-solid fa-user"></i>
-              <a class="usersss" href="users.html">Users</a>
-            </li>
-
-            <li>
-              <i class="fa-solid fa-question"></i>
-              <a class="quizzes" href="quizzes.html">Quizzes</a>
-            </li>
-          </ul>
-          <div class="admin-logout-btn">
-            <i class="fa-solid fa-arrow-left-from-bracket"></i>
-            <button onclick="logout()">Logout</button>
-          </div>
-        </section> */}
-        <Sidebar/>
+        <Sidebar />
 
         <section class="right-sidebar main-content">
           <div class="title">
             <h1>All Quiz Questions</h1>
           </div>
-          <button id="add-new-question-btn" onClick={()=>setAddQuestionModel(true)}>Add new Question</button>
+          <button id="add-new-question-btn" onClick={() => setAddQuestionModel(true)}>Add new Question</button>
           <table class="table" id="question-table">
             <tr>
               <th>Sr.No</th>
@@ -99,8 +87,8 @@ const Quizzes = () => {
                   <td>{index + 1}</td>
                   <td>{question.question}</td>
                   <td >
-                    <FaRegEye onClick={()=>handleViewQuestionModel(question)} style={{ marginRight: "10px", color: "blue", cursor: "pointer" }} />
-                    <FaPen style={{ marginRight: "10px", color: "purple", cursor: "pointer" }} /> <FaTrashCan style={{ color: "red", cursor: "pointer" }} onClick={()=>handleDelete(question.id)}/>
+                    <FaRegEye onClick={() => handleViewQuestionModel(question)} style={{ marginRight: "10px", color: "blue", cursor: "pointer" }} />
+                    <FaPen style={{ marginRight: "10px", color: "purple", cursor: "pointer" }} onClick={() => handleUpdateQuestionModel(question)} /> <FaTrashCan style={{ color: "red", cursor: "pointer" }} onClick={() => handleDelete(question.id)} />
                   </td>
                 </tr>
               ))
@@ -112,14 +100,16 @@ const Quizzes = () => {
       </div>
 
       {
-        viewQuestionModel && <ViewQuestionModel question={selectedQuestion} setViewQuestionModel={setViewQuestionModel}  />
+        viewQuestionModel && <ViewQuestionModel question={selectedQuestion} setViewQuestionModel={setViewQuestionModel} />
       }
       {
-        addQuestionModel && <AddQuestionModel setAddQuestionModel={ setAddQuestionModel} /> 
+        addQuestionModel && <AddQuestionModel setAddQuestionModel={setAddQuestionModel} />
       }
 
 
-
+      {
+        updateQuestionModel && <UpdateQuestionModel selectedQuestion={selectedQuestion} setUpdateQuestionModel={setUpdateQuestionModel} />
+      }
 
 
 

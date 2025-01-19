@@ -27,16 +27,15 @@
   ],
   "questions": [
     {
+      "id": "810d",
       "question": "What is the square root of 64?",
       "answers": [
-        "6",
+        "60",
         "7",
         "8",
         "9"
       ],
-      "correct": 2,
-      "choosedAnswer": null,
-      "id": "810d"
+      "correct": 2
     },
     {
       "question": "What does the typeof operator return when applied to an object?",
