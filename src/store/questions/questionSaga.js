@@ -5,8 +5,8 @@ const apiUrl = "http://localhost:5000/questions";
 
 function* fetchQuestions() {
   try {
-      const response = yield call(axios.get, apiUrl);
-      console.log({response })
+    const response = yield call(axios.get, apiUrl);
+    console.log({ response });
     yield put({ type: "FETCH_QUESTION_SUCCESS", payload: response.data });
   } catch (error) {
     yield put({ type: "FETCH_QUESTION_FAILURE", payload: error.message });
@@ -17,11 +17,10 @@ function* watchfetchQuestions() {
   yield takeLatest("FETCH_QUESTION_REQUEST", fetchQuestions);
 }
 
-
 function* addQuestions(action) {
   try {
-      const response = yield call(axios.post, apiUrl, action.payload);
-      console.log({response })
+    const response = yield call(axios.post, apiUrl, action.payload);
+    console.log({ response });
     yield put({ type: "ADD_QUESTION_SUCCESS", payload: response.data });
   } catch (error) {
     yield put({ type: "ADD_QUESTION_FAILURE", payload: error.message });
@@ -32,6 +31,24 @@ function* watchaddQuestions() {
   yield takeLatest("ADD_QUESTION_REQUEST", addQuestions);
 }
 
+function* deleteQuestions(action) {
+  try {
+    const response = yield call(axios.delete, `${apiUrl}/${action.id}`);
+    console.log({ response });
+    yield put({ type: "DELETE_QUESTION_SUCCESS", payload: response.data });
+  } catch (error) {
+    yield put({ type: "DELETE_QUESTION_FAILURE", payload: error.message });
+  }
+}
+
+function* watchdeleteQuestions() {
+  yield takeLatest("DELETE_QUESTION_REQUEST", deleteQuestions);
+}
+
 export default function* questionSaga() {
-  yield all([fork(watchfetchQuestions), fork(watchaddQuestions)]);
+  yield all([
+    fork(watchfetchQuestions),
+    fork(watchaddQuestions),
+    fork(watchdeleteQuestions),
+  ]);
 }

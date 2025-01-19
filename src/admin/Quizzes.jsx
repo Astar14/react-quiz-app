@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchQuestionRequest } from '../store/questions/questionAction'
+import { deleteQuestionRequest, fetchQuestionRequest } from '../store/questions/questionAction'
 import { FaRegEye } from "react-icons/fa6";
 import { FaPen } from "react-icons/fa";
 import { FaTrashCan } from "react-icons/fa6";
 import ViewQuestionModel from '../components/ViewQuestionModel';
 import { useState } from 'react';
 import AddQuestionModel from '../components/AddQuestionModel';
+import Sidebar from '../components/Sidebar';
 
 const Quizzes = () => {
 
@@ -20,6 +21,15 @@ const Quizzes = () => {
   const handleViewQuestionModel = (question) => {
     setSelectedQuestion(question)
     setViewQuestionModel(!viewQuestionModel)
+  }
+
+
+  const handleDelete = (id) => {
+    console.log(id)
+    if (confirm("Are you sure want to delete this question ?")) {
+      dispatch(deleteQuestionRequest(id))
+      // return
+    }
   }
 
 
@@ -49,7 +59,7 @@ const Quizzes = () => {
       </header>
 
       <div class="admin-main-ciontainer">
-        <section class="sidebar">
+        {/* <section class="sidebar">
           <h2>Dashboard</h2>
           <ul>
             <a href="adminDashboard.html"> <li><i class="fa-solid fa-house"></i>Home</li></a>
@@ -68,7 +78,8 @@ const Quizzes = () => {
             <i class="fa-solid fa-arrow-left-from-bracket"></i>
             <button onclick="logout()">Logout</button>
           </div>
-        </section>
+        </section> */}
+        <Sidebar/>
 
         <section class="right-sidebar main-content">
           <div class="title">
@@ -89,7 +100,7 @@ const Quizzes = () => {
                   <td>{question.question}</td>
                   <td >
                     <FaRegEye onClick={()=>handleViewQuestionModel(question)} style={{ marginRight: "10px", color: "blue", cursor: "pointer" }} />
-                    <FaPen style={{ marginRight: "10px", color: "purple", cursor: "pointer" }} /> <FaTrashCan style={{ color: "red", cursor: "pointer" }} />
+                    <FaPen style={{ marginRight: "10px", color: "purple", cursor: "pointer" }} /> <FaTrashCan style={{ color: "red", cursor: "pointer" }} onClick={()=>handleDelete(question.id)}/>
                   </td>
                 </tr>
               ))

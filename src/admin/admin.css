@@ -592,11 +592,9 @@
     margin-top: 6px;
     margin-bottom: 6px;
   }
-  
-  .active {
+
+  .active li{
     background-color: #F3BD00;
-    font-weight: bold;
-    padding: 5px;
   }
   .username-email{
     display:  flex;

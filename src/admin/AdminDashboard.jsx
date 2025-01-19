@@ -1,5 +1,6 @@
 import React from 'react'
-import "./admin.css"
+import Sidebar from '../components/Sidebar'
+import './admin.css'
 
 const AdminDashboard = () => {
   return (
@@ -24,28 +25,8 @@ const AdminDashboard = () => {
       </div>
     </header>
 
-    <div class="admin-main-ciontainer">
-      <section class="sidebar">
-        <h2>Dashboard</h2>
-        <ul clas="menu">
-          <li>
-            <i class="fa-solid fa-house"></i>
-           <a class="dashboard" href="adminDashboard.html">Home</a> 
-          </li>
-          <li>
-            <i class="fa-solid fa-user"></i>
-            <a class="usersss" href="users.html">Users</a>
-          </li>
-          <li>
-            <i class="fa-solid fa-question"></i>
-            <a class="quizzes" href="quizzes.html">Quizzes</a>
-          </li>
-        </ul>
-        <div class="admin-logout-btn">
-          <i class="fa-solid fa-arrow-left-from-bracket"></i>
-          <button onclick="logout()">Logout</button>
-        </div>
-      </section>
+      <div class="admin-main-ciontainer">
+        <Sidebar/>
 
       <section class="main-content">
         <div class="main-content-info">

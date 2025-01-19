@@ -8,7 +8,10 @@ const questionReducer = (state = initialState, action) => {
     case "FETCH_QUESTION_SUCCESS":
       return { ...state, questions: action.payload };
     case "ADD_QUESTION_SUCCESS":
-      return { ...state, users: [...state.users, action.payload] };
+      return { ...state, questions: [...state.questions, action.payload] };
+    case "DELETE_QUESTION_SUCCESS":
+        console.log({action})
+        return { ...state, questions: state.questions.filter((question)=>(question.id !== action.payload.id)) };
     default:
       return state;
   }

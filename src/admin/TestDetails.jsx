@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router'
 import { fetchUserTestRequest } from '../store/userTest/userTestAction'
+import Sidebar from '../components/Sidebar'
 
 const TestDetails = () => {
 
@@ -40,18 +41,7 @@ const TestDetails = () => {
             </header>
 
             <div class="admin-main-ciontainer">
-                <section class="sidebar">
-                    <h2>Dashboard</h2>
-                    <ul>
-                        <a href="adminDashboard.html"> <li><i class="fa-solid fa-house"></i>Home</li></a>
-                        <a href="users.html">  <li><i class="fa-solid fa-user"></i>Users</li></a>
-                        <a href="quizzes.html"><li><i class="fa-solid fa-question"></i>Quizzes</li></a>
-                    </ul>
-                    <div class="admin-logout-btn">
-                        <i class="fa-solid fa-arrow-left-from-bracket"></i>
-                        <button onclick="logout()">Logout</button>
-                    </div>
-                </section>
+                <Sidebar/>
 
                 <section class="main-content">
                     <div class="users-test-attempt">

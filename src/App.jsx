@@ -26,8 +26,7 @@ function App() {
       <Route path='/quizzes' element={<Quizzes />} />
       <Route path='/userinfo' element={<UsersInformation />} />
       <Route path='/testdetails/:id' element={<TestDetails />} />
-
-      <Route path='/fulltestdetails/:id/:testIndex' element={<FullTestDetails/>}/>
+      <Route path='/fulltestdetails/:id/:testIndex' element={<FullTestDetails />} />
     </Routes>
   )
 }

@@ -29,11 +29,6 @@ const Questions = () => {
   const logoutButton = () => {
     console.log("Logout..")
   }
-  
-  const openLogoutPopUp = () => {
-    console.log("opening..")
-    setLogoutToggle(!logoutToggle)
-  }
 
 
   console.log(userTests)

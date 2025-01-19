@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchUserTestRequest } from '../store/userTest/userTestAction'
 import { Link } from 'react-router'
 //import "./admin.css"
+import Sidebar from '../components/Sidebar'
 
 
 const UsersInformation = () => {
@@ -38,21 +39,7 @@ const UsersInformation = () => {
             </header>
 
             <div class="admin-main-ciontainer">
-                <section class="sidebar">
-                    <h2>Dashboard</h2>
-                    <ul>
-                        <a href="adminDashboard.html">  <li><i class="fa-solid fa-house"></i>Home</li></a>
-                        <li>
-                            <i class="fa-solid fa-user"></i>
-                            <a class="usersss">Users</a>
-                        </li>
-                        <a href="quizzes.html"><li><i class="fa-solid fa-question"></i>Quizzes</li></a>
-                    </ul>
-                    <div class="admin-logout-btn">
-                        <i class="fa-solid fa-arrow-left-from-bracket"></i>
-                        <button >Logout</button>
-                    </div>
-                </section>
+                <Sidebar/>
 
                 <section class="main-content">
                     <div class="users-information">
