@@ -2,6 +2,7 @@ import React from 'react'
 import techpaathshala from "../assets/techpaathshala.svg"
 import userImage from "../assets/user_image.jpg"
 import { Link } from 'react-router'
+import Header from '../components/Header'
 
 const DashBoard = () => {
 
@@ -9,33 +10,8 @@ const DashBoard = () => {
 
 
   return (
-      <>
-        <header id="header">
-        <div id="tech-logo">
-          <a href="startquiz.html">
-            <img
-              src={techpaathshala}
-              alt="techpaathsala"
-            />
-          </a>
-        </div>
-
-        <div className="right-side-info">
-          <ul>
-            <a href="startquiz.html">
-              <li></li>
-            </a>
-            <li>Welcome,</li>
-            <li>{userData.fullName}</li>
-            <img
-              id="popup"
-              src={userImage}
-              alt="userimage"
-            />
-          </ul>
-        </div>
-      </header>
-
+    <>
+      <Header />
       <main>
         <h1>Let's Start the Quiz</h1>
         <div className="time">
@@ -61,9 +37,9 @@ const DashBoard = () => {
               </p>
             </div>
           </div>
-         <Link to="/question"><button className="button" id="button">
+          <Link to="/question"><button className="button" id="button">
             Start Quiz
-          </button></Link> 
+          </button></Link>
         </section>
       </main>
 
@@ -74,7 +50,7 @@ const DashBoard = () => {
           Logout
         </button>
       </div>
-      </>
+    </>
   )
 }
 

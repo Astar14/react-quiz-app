@@ -27,17 +27,6 @@
   ],
   "questions": [
     {
-      "id": "810d",
-      "question": "What is the square root of 64?",
-      "answers": [
-        "60",
-        "7",
-        "8",
-        "9"
-      ],
-      "correct": 2
-    },
-    {
       "question": "What does the typeof operator return when applied to an object?",
       "answers": [
         "Array",
@@ -170,18 +159,6 @@
       "id": "8c51"
     },
     {
-      "question": "Which of the following is true about the virtual DOM in React?",
-      "answers": [
-        "It directly updates the real DOM",
-        "It creates a lightweight copy of the real DOM",
-        "It is used for server-side rendering only",
-        "It replaces the real DOM completely"
-      ],
-      "correct": 1,
-      "choosedAnswer": null,
-      "id": "f08a"
-    },
-    {
       "question": "Which command initializes a new Git repository?",
       "answers": [
         "git init",
@@ -276,6 +253,17 @@
       "correct": 0,
       "choosedAnswer": null,
       "id": "3c1a"
+    },
+    {
+      "id": "60e5",
+      "question": "what is js stands for",
+      "answers": [
+        "javascript",
+        "a",
+        "javasource",
+        "Mark Twain"
+      ],
+      "correct": "0"
     }
   ],
   "userTests": [
@@ -576,6 +564,99 @@
             1
           ],
           "timeTaken": "0 : 23 "
+        },
+        {
+          "totalScore": 20,
+          "randomQuestions": [
+            {
+              "question": "Which method is used to remove the last element from an array?",
+              "answers": [
+                "delete()",
+                "shift()",
+                "pop()",
+                "slice()"
+              ],
+              "correct": 2,
+              "choosedAnswer": null,
+              "id": "ef95"
+            },
+            {
+              "question": "Which command initializes a new Git repository?",
+              "answers": [
+                "git init",
+                "git start",
+                "git create",
+                "git repo"
+              ],
+              "correct": 0,
+              "choosedAnswer": null,
+              "id": "6704"
+            },
+            {
+              "question": "Which utility class in Tailwind CSS applies padding to all sides of an element?",
+              "answers": [
+                "p-4",
+                "pt-4",
+                "ml-4",
+                "text-4xl"
+              ],
+              "correct": 0,
+              "choosedAnswer": null,
+              "id": "dc18"
+            }
+          ],
+          "selectedOption": [
+            0,
+            0,
+            0
+          ],
+          "timeTaken": "0 : 10 "
+        },
+        {
+          "totalScore": 30,
+          "randomQuestions": [
+            {
+              "question": "What does the typeof operator return when applied to an object?",
+              "answers": [
+                "Array",
+                "Object",
+                "Function",
+                "Undefined"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "3372"
+            },
+            {
+              "id": "810d",
+              "question": "What is the square root of 64?",
+              "answers": [
+                "60",
+                "7",
+                "8",
+                "9"
+              ],
+              "correct": 2
+            },
+            {
+              "question": "What is the primary purpose of React?",
+              "answers": [
+                "To manage the backend of an application",
+                "To build reusable UI components",
+                "To create REST APIs",
+                "To handle database operations"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "8c51"
+            }
+          ],
+          "selectedOption": [
+            1,
+            2,
+            1
+          ],
+          "timeTaken": "0 : 15 "
         }
       ]
     }

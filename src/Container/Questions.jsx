@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import userImage from "../assets/user_image.jpg";
-import techpaathshala from "../assets/techpaathshala.svg";
+
 import { useDispatch, useSelector } from "react-redux";
 import { fetchQuestionRequest } from "../store/questions/questionAction";
 import { addUserTestRequest, fetchUserTestRequest, updateUserTestRequest } from "../store/userTest/userTestAction";
 import { useNavigate } from "react-router";
+import Header from "../components/Header";
 
 const Questions = () => {
   const [randomQuestions, setRandomQuestions] = useState([]);
@@ -24,15 +24,12 @@ const Questions = () => {
 
   const questions = useSelector((state) => state.questions.questions);
   const userTests = useSelector((state) => state.userTests.userTests);
+  const navigate = useNavigate()
 
-
-  const logoutButton = () => {
-    console.log("Logout..")
-  }
 
 
   console.log(userTests)
-  const navigate = useNavigate()
+
 
   // Selecting options
   const handleOptionSelect = (index) => {
@@ -124,24 +121,7 @@ const Questions = () => {
 
   return (
     <>
-      <header id="header">
-        <div id="tech-logo">
-          <a href="startquiz.html">
-            <img src={techpaathshala} alt="techpaathsala" />
-          </a>
-        </div>
-
-        <div className="right-side-info">
-          <ul>
-            <a href="startquiz.html">
-              <li></li>
-            </a>
-            <li>Welcome,</li>
-            <li>{userInfo.fullName}</li>
-            <img id="popup" src={userImage} alt="userimage"  />
-          </ul>
-        </div>
-      </header>
+     <Header/>
 
       {randomQuestions.length ? (
         <section id="question-answer">
@@ -197,7 +177,7 @@ const Questions = () => {
       <div id="logout-container">
         <p id="my-name">Hii, Amit</p>
         <p id="my-email">amit2546@gmail.com</p>
-        <button id="logout-button" onClick={logoutButton}>
+        <button id="logout-button">
           Logout
         </button>
         <button id="logout-button">Edit</button>

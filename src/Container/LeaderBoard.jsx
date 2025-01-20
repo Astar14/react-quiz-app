@@ -8,6 +8,8 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchUserTestRequest } from '../store/userTest/userTestAction'
+import Header from '../components/Header'
+
 
 const LeaderBoard = () => {
 
@@ -48,24 +50,7 @@ const LeaderBoard = () => {
 
   return (
     <>
-      <header id="header">
-        <div id="tech-logo">
-          <a href="startquiz.html"><img src={techpaathshala} alt="techpaathsala" /></a>
-        </div>
-
-        <div className="right-side-info">
-          <ul>
-            <a href="startquiz.html"><li></li></a>
-            <li>Welcome,</li>
-            <li>{userData.fullName}</li>
-            <img
-              id="popup"
-              src={userImage}
-              alt="userimage"
-            />
-          </ul>
-        </div>
-      </header>
+      <Header/>
 
       <section id="leaderboard-main">
         <h1 id="user-rank-title">Wow You Rank {userIndex || 'N/A'}</h1>
