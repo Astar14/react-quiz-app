@@ -1,11 +1,12 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar'
 import './admin.css'
+import Header from '../components/Header'
 
 const AdminDashboard = () => {
   return (
       <>
-       <header id="admin-header">
+       {/* <header id="admin-header">
       <div id="tech-logo">
         <i class="hamburger fa-solid fa-bars" onclick="sidebarToggle()"></i>
         <img src="assets/techpaathshala.svg" alt="techpaathsala" />
@@ -23,7 +24,8 @@ const AdminDashboard = () => {
           />
         </ul>
       </div>
-    </header>
+    </header> */}
+      <Header/>
 
       <div class="admin-main-ciontainer">
         <Sidebar/>

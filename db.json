@@ -271,7 +271,7 @@
       "id": "a070",
       "fullName": "Amit",
       "email": "amit@gmail.com",
-      "totalScore": 30,
+      "totalScore": 20,
       "tests": [
         {
           "totalScore": 40,
@@ -657,6 +657,209 @@
             1
           ],
           "timeTaken": "0 : 15 "
+        },
+        {
+          "totalScore": 20,
+          "randomQuestions": [
+            {
+              "question": "What does the typeof operator return when applied to an object?",
+              "answers": [
+                "Array",
+                "Object",
+                "Function",
+                "Undefined"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "3372"
+            },
+            {
+              "question": "Which function is used to parse a string to an integer in JavaScript?",
+              "answers": [
+                "parseInt()",
+                "parseFloat()",
+                "Number()",
+                "int()"
+              ],
+              "correct": 0,
+              "choosedAnswer": null,
+              "id": "d77f"
+            },
+            {
+              "question": "What does the 'tailwind.config.js' file do?",
+              "answers": [
+                "Configures the Tailwind CLI",
+                "Customizes default styles and themes in Tailwind CSS",
+                "Creates a new Tailwind project",
+                "Adds Tailwind plugins to a project"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "e4a2"
+            }
+          ],
+          "selectedOption": [
+            1,
+            1,
+            1
+          ],
+          "timeTaken": "0 : 14 "
+        }
+      ]
+    },
+    {
+      "id": "516c",
+      "fullName": "Ajay",
+      "email": "ajay@gmail.com",
+      "totalScore": 30,
+      "tests": [
+        {
+          "totalScore": 30,
+          "randomQuestions": [
+            {
+              "question": "What is the largest mammal in the world?",
+              "answers": [
+                "Elephant",
+                "Blue Whale",
+                "Giraffe",
+                "Shark"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "5433"
+            },
+            {
+              "question": "What does the typeof operator return when applied to an object?",
+              "answers": [
+                "Array",
+                "Object",
+                "Function",
+                "Undefined"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "3372"
+            },
+            {
+              "question": "What does HTML stands for?",
+              "answers": [
+                "Hypertext machine language",
+                "Hyper tranfer markup language",
+                "Hypertext markup language",
+                "Hyperlink and text markup language"
+              ],
+              "correct": 2,
+              "choosedAnswer": null,
+              "id": "2b86"
+            }
+          ],
+          "selectedOption": [
+            1,
+            1,
+            2
+          ],
+          "timeTaken": "0 : 13 "
+        }
+      ]
+    },
+    {
+      "id": "262f",
+      "fullName": "Ganesh",
+      "email": "ganesh@gmail.com",
+      "totalScore": 10,
+      "tests": [
+        {
+          "totalScore": 10,
+          "randomQuestions": [
+            {
+              "question": "What does the typeof operator return when applied to an object?",
+              "answers": [
+                "Array",
+                "Object",
+                "Function",
+                "Undefined"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "3372"
+            },
+            {
+              "question": "Which utility class in Tailwind CSS applies padding to all sides of an element?",
+              "answers": [
+                "p-4",
+                "pt-4",
+                "ml-4",
+                "text-4xl"
+              ],
+              "correct": 0,
+              "choosedAnswer": null,
+              "id": "dc18"
+            },
+            {
+              "question": "Which method is used to remove the last element from an array?",
+              "answers": [
+                "delete()",
+                "shift()",
+                "pop()",
+                "slice()"
+              ],
+              "correct": 2,
+              "choosedAnswer": null,
+              "id": "ef95"
+            }
+          ],
+          "selectedOption": [
+            3,
+            3,
+            2
+          ],
+          "timeTaken": "0 : 13 "
+        },
+        {
+          "totalScore": 10,
+          "randomQuestions": [
+            {
+              "question": "What does NaN represent in JavaScript?",
+              "answers": [
+                "Not a Node",
+                "Not a Number",
+                "No available number",
+                "None of the above"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "e7de"
+            },
+            {
+              "question": "In React, how do you update the state of a component?",
+              "answers": [
+                "Directly modify the state variable",
+                "Use the setState or updater function",
+                "Call the render() method again",
+                "Update the DOM manually"
+              ],
+              "correct": 1,
+              "choosedAnswer": null,
+              "id": "ee6f"
+            },
+            {
+              "id": "60e5",
+              "question": "what is js stands for",
+              "answers": [
+                "javascript",
+                "a",
+                "javasource",
+                "Mark Twain"
+              ],
+              "correct": "0"
+            }
+          ],
+          "selectedOption": [
+            0,
+            1,
+            0
+          ],
+          "timeTaken": "1 : 4 "
         }
       ]
     }

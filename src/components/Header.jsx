@@ -2,6 +2,8 @@ import React from 'react'
 import userImage from "../assets/user_image.jpg";
 import techpaathshala from "../assets/techpaathshala.svg";
 import { useNavigate } from 'react-router';
+import { GiHamburgerMenu } from "react-icons/gi";
+
 
 const Header = () => {
 
@@ -19,6 +21,7 @@ const Header = () => {
         <>
             <header id="header">
                 <div id="tech-logo">
+                    <GiHamburgerMenu style={{ marginRight: "30px", fontSize: "26px" }} />
                     <a href="startquiz.html">
                         <img
                             src={techpaathshala}

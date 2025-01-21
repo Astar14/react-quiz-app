@@ -4,6 +4,7 @@ import { fetchUserTestRequest } from '../store/userTest/userTestAction'
 import { Link } from 'react-router'
 //import "./admin.css"
 import Sidebar from '../components/Sidebar'
+import Header from '../components/Header'
 
 
 const UsersInformation = () => {
@@ -17,7 +18,7 @@ const UsersInformation = () => {
 
     return (
         <>
-            <header id="admin-header">
+            {/* <header id="admin-header">
 
                 <div id="tech-logo">
                     <i class="hamburger fa-solid fa-bars" onclick="sidebarToggle()"></i>
@@ -36,7 +37,9 @@ const UsersInformation = () => {
                         />
                     </ul>
                 </div>
-            </header>
+            </header> */}
+
+            <Header/>
 
             <div class="admin-main-ciontainer">
                 <Sidebar/>

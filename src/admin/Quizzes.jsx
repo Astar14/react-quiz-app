@@ -9,6 +9,7 @@ import { useState } from 'react';
 import AddQuestionModel from '../components/AddQuestionModel';
 import Sidebar from '../components/Sidebar';
 import UpdateQuestionModel from '../components/UpdateQuestionModel';
+import Header from '../components/Header';
 
 const Quizzes = () => {
 
@@ -46,7 +47,7 @@ const Quizzes = () => {
 
   return (
     <>
-      <header id="admin-header">
+      {/* <header id="admin-header">
         <div id="tech-logo">
           <i class="hamburger fa-solid fa-bars" onclick="sidebarToggle()"></i>
           <img src="assets/techpaathshala.svg" alt="techpaathsala" />
@@ -63,7 +64,9 @@ const Quizzes = () => {
             />
           </ul>
         </div>
-      </header>
+      </header> */}
+
+      <Header/>
 
       <div class="admin-main-ciontainer">
 
