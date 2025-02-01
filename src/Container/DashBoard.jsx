@@ -7,7 +7,7 @@ import Header from '../components/Header'
 
 const DashBoard = () => {
 
-  let userData = JSON.parse(localStorage.getItem("userLoggedIn"))
+  let userData  = JSON.parse(localStorage.getItem("userLoggedIn"))
 
 
   return (

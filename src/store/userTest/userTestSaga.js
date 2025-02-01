@@ -1,11 +1,14 @@
 import axios from "axios";
 import { all, call, fork, put, take, takeLatest } from "redux-saga/effects";
+import { ApiConstants } from "../../constant/ApiConstant";
+import http from "../../libraries/axios";
 
-const apiUrl = "http://localhost:5000/userTests";
+//const apiUrl = "http://localhost:5000/userTests";
+const apiUrl = `${ApiConstants.userTestsApi}`
 
 function* fetchUserTests() {
   try {
-    const response = yield call(axios.get, apiUrl);
+    const response = yield call(http.get, apiUrl);
     yield put({ type: "FETCH_USERTEST_SUCCESS", payload: response.data });
   } catch (error) {
     yield put({ type: "FETCH_USERTEST_FAILURE", payload: error.message });
@@ -18,7 +21,7 @@ function* watchfetchUserTests() {
 
 function* addUserTests(action) {
   try {
-    const response = yield call(axios.post, apiUrl, action.payload);
+    const response = yield call(http.post, apiUrl, action.payload);
     yield put({ type: "ADD_USERTEST_SUCCESS", payload: response.data });
   } catch (error) {
     yield put({ type: "ADD_USERTEST_FAILURE", payload: error.message });
@@ -32,7 +35,7 @@ function* watchaddUserTests() {
 function* upadteUserTests(action) {
   try {
     const response = yield call(
-      axios.put,
+      http.put,
       `${apiUrl}/${action.payload.id}`,
       action.payload
     );

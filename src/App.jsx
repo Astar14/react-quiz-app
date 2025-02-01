@@ -11,22 +11,30 @@ import UsersInformation from './admin/UsersInformation'
 import TestDetails from './admin/TestDetails'
 import FullTestDetails from './admin/FullTestDetails'
 import Quizzes from "./admin/Quizzes"
+import PublicRoutes from './routes/PublicRoutes'
+import PrivateRoutes from './routes/PrivateRoutes'
 
 function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />} />
-      <Route path="/signup" element={<SignUpPage />} />
-      <Route path='/dashboard' element={<DashboardPage />} />
-      <Route path='/question' element={<QuestionPage />} />
-      <Route path='/leaderboard' element={<LeaderBoardPage />} />
-      <Route path='/adminlogin' element={<AdminLogin />} />
-      <Route path='/admindashboard' element={<AdminDashboard />} />
-      <Route path='/quizzes' element={<Quizzes />} />
-      <Route path='/userinfo' element={<UsersInformation />} />
-      <Route path='/testdetails/:id' element={<TestDetails />} />
-      <Route path='/fulltestdetails/:id/:testIndex' element={<FullTestDetails />} />
+      <Route element={<PublicRoutes />}>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path='/adminlogin' element={<AdminLogin />} />
+      </Route>
+
+      <Route path='/' element={<PrivateRoutes />}>
+        <Route path='/dashboard' element={<DashboardPage />} />
+        <Route path='/question' element={<QuestionPage />} />
+        <Route path='/leaderboard' element={<LeaderBoardPage />} />
+        <Route path='/admindashboard' element={<AdminDashboard />} />
+        <Route path='/quizzes' element={<Quizzes />} />
+        <Route path='/userinfo' element={<UsersInformation />} />
+        <Route path='/testdetails/:id' element={<TestDetails />} />
+        <Route path='/fulltestdetails/:id/:testIndex' element={<FullTestDetails />} />
+      </Route>
+
     </Routes>
   )
 }

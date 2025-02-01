@@ -16,11 +16,9 @@ const UpdateQuestionModel = ({ setUpdateQuestionModel, selectedQuestion }) => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
-        // dispatch(addQuestionRequest({ question, answers: [optionOne, optionTwo, optionThree, optionFour], correct: correctAnswer }))
         dispatch(updateQuestionRequest({ id: selectedQuestion.id, question: question, answers: [optionOne, optionTwo, optionThree, optionFour], correct: correctAnswer }))
         setUpdateQuestionModel(false)
     }
-
 
     return (
         <>

@@ -1,11 +1,13 @@
 import axios from "axios";
 import { all, call, fork, put, take, takeLatest } from "redux-saga/effects";
+import http from "../../libraries/axios";
 
-const apiUrl = "http://localhost:5000/users";
+//const apiUrl = "http://localhost:5000/users";
+const apiUrl = `${ApiConstants.usersApi}`
 
 function* fetchUsers() {
   try {
-    const response = yield call(axios.get, apiUrl);
+    const response = yield call(http.get, apiUrl);
     yield put({ type: "FETCH_USER_SUCCESS", payload: response.data });
   } catch (error) {
     yield put({ type: "FETCH_USER_FAILURE", payload: error.message });
@@ -18,7 +20,7 @@ function* watchfetchUsers() {
 
 function* addUsers(action) {
     try {
-      const response = yield call(axios.post, apiUrl, action.payload);
+      const response = yield call(http.post, apiUrl, action.payload);
       yield put({ type: "ADD_USER_SUCCESS", payload: response.data });
     } catch (error) {
       yield put({ type: "ADD_USER_FAILURE", payload: error.message });

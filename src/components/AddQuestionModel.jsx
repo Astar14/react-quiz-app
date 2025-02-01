@@ -22,7 +22,7 @@ const AddQuestionModel = ({setAddQuestionModel}) => {
 
   return (
       <>
-             <div class="overlay" id="overlay"  onClick={()=>setAddQuestionModel(false)}></div> 
+       <div class="overlay" id="overlay"  onClick={()=>setAddQuestionModel(false)}></div> 
         <section id="add-new-question">
         <h1>Add New Question</h1>
         <form action=""  onSubmit={handleFormSubmit} class="form">
